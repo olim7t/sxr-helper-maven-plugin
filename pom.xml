@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.github.olim7t</groupId>
+	<artifactId>sxr-helper-maven-plugin</artifactId>
+	<packaging>maven-plugin</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+
+  <properties>
+    <scala.version>2.8.0</scala.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-core</artifactId>
+			<version>2.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-reactor-plugin</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.scala-tools</groupId>
+			<artifactId>scala-mojo-support</artifactId>
+			<version>0.3-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.scala-tools</groupId>
+				<artifactId>maven-scala-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>add-source</goal>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+      <plugin>
+        <artifactId>maven-plugin-plugin</artifactId>
+        <dependencies>
+          <dependency>
+            <groupId>org.scala-tools</groupId>
+            <artifactId>scala-mojo-support</artifactId>
+            <version>0.3-SNAPSHOT</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>scala-tools.org</id>
+			<name>Scala-tools Maven2 Repository</name>
+			<url>http://scala-tools.org/repo-releases</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>scala-tools.org</id>
+			<name>Scala-tools Maven2 Repository</name>
+			<url>http://scala-tools.org/repo-releases</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+</project>
